@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int numWays(int n) {
+        if(n==0)return 1;//根据题意n=2结果是2，所以n=0结果是1
+        if(n==1||n==2)
+            return n;
+        int a = 1, b = 2, sum=0;
+        for(int i = 3; i <= n; i++){
+            sum = (a + b) % 1000000007;
+            a = b;
+            b = sum;
+        }
+        return sum;
+    }
+};
